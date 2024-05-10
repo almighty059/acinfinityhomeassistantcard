@@ -1,6 +1,16 @@
 # AC Infinity Home Assistant Card
 
-This is my first repository so forgive me if I'm doing it wrong. I basically made four folders with the code I used for my Home Assistant card. I use the card two different ways, as a popup card and as a regular card. The reason is I have a page with a shortened dashboard card (which I do not show the code for). It's basically the same dashboardcard but shortened to only show the three gauges and the click for popup function. You could obviouosly change it on how you see fit. The reason I use the decluttering card is because I have more than one AC Infinity controller so the declutterring card allows me to write the code once and then send variables to it depending on which one I use. I use several custom cards. Below is a list of the custom cards I used.
+This is my first repository so forgive me if I'm doing it wrong. 
+
+I basically made five folders with the code I used for my Home Assistant card. I use the card two different ways, as a popup card and as a regular card. The reason I have the popup uis because I originally had a dashboard view with a lot of other information on it so I setup the AC Infinity card to operate as a popup. I still have that dashboard view but I also now have a dashboard view with both my AC Infinity controllers in a side-by-side view for comparision. I change things as I need them or as I feel I don't need them which is why you might see something repetitive like the control for the max or on level of a device. I have both a bar slider and a number box because I'm trying out both to see which one I like more. 
+
+The reason I use the decluttering card is because I have more than one AC Infinity controller and also because of the multiple ports on the AC Infinity controller. The decluttering card helps with both. So if I purchased another controller or the controller that has the 8 ports I could just change the amount of tabs and then send a specific variable to the declutterring card. You'll notice I use the same naming convention for my device tent_001_port_001 or tent_002_port_002. I did not use the type of device connected because I often changed them and it was easier to use a general term for each and just remember which each one was. That could easily be changed though by changing the name of each tab of the custom tab card.
+
+The button templates were also used to cutdown on the amount of code. If one vriable needs to be changed I change it in the code after I call the template because it overides the template. The default button template is a template I use throughout my entire dashboard for all my views. It works with the dark theme that I'm using. You might need to adjust that to fit your dashboard theme. This is also true with my use of several different type of stack cards. The different cards produced different results for me when it came to the border or background so I used the cards that worked for me for that particular secion.
+
+The template sensors are in my configuration yaml. I actually have use the `template: !include templates.yaml` function in my main config file to point to a `templates.yaml` file that has all of the templates I use for my entire dashboard. That is why they begin with `sensor` and not `template`. The templates were needed to properly help display whether devices were ON or OFF or whether they were PLUGGED IN or UNPLUGGED.
+
+
 
 ## Custom Cards:
 Custom Button Card: https://github.com/custom-cards/button-card
