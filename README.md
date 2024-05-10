@@ -24,3 +24,5 @@ Custom Slider Button Card: https://github.com/mattieha/slider-button-card
 Custom Number Box Card: https://github.com/junkfix/numberbox-card
 
 
+![324518180-ba43d79f-7c2f-4cfc-bbed-49e0aeb28568](https://github.com/almighty059/acinfinityhomeassistantcard/assets/63380298/ab069ae2-39a3-4269-a66e-412b1f435e6b)
+
