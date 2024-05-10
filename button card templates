@@ -1,4 +1,23 @@
 button_card_templates:
+
+  default_button_01:
+    show_icon: false
+    styles:
+      card:
+        - height: 100%
+        - '--mdc-ripple-color': white
+        - '--mdc-ripple-press-opacity': 0.5
+        - border-radius: 10%
+        - padding: 5%
+        - border-color: rgba(119, 119, 119, 0.4)
+        - box-shadow: 0px 0px 0px 0px var(--primary-text-color)
+      name:
+        - font-size: 20px
+        - font-weight: none
+    tap_action: []
+    double_tap_action: []
+    hold_action: []
+
   ac_infinity_button_mode_state_01:
     show_icon: false
     tap_action:
@@ -37,6 +56,7 @@ button_card_templates:
                 return 500;
               else return '';
             ]]]
+
   ac_infinity_port_state_01:
     show_name: true
     show_icon: false
