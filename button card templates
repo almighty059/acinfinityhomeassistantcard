@@ -1,5 +1,4 @@
 button_card_templates:
-
   default_button_01:
     show_icon: false
     styles:
@@ -17,7 +16,6 @@ button_card_templates:
     tap_action: []
     double_tap_action: []
     hold_action: []
-
   ac_infinity_button_mode_state_01:
     show_icon: false
     tap_action:
@@ -56,7 +54,6 @@ button_card_templates:
                 return 500;
               else return '';
             ]]]
-
   ac_infinity_port_state_01:
     show_name: true
     show_icon: false
