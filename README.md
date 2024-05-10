@@ -21,6 +21,8 @@ Custom Gap Card: https://github.com/thomasloven/lovelace-gap-card
 
 Custom Slider Button Card: https://github.com/mattieha/slider-button-card
 
+Custom Tabbed Card: https://github.com/kinghat/tabbed-card
+
 Custom Number Box Card: https://github.com/junkfix/numberbox-card
 
 
