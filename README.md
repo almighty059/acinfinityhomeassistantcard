@@ -1,6 +1,10 @@
 # AC Infinity Home Assistant Card
 
-This is my first repository so forgive me if I'm doing it wrong. 
+This is my first repository so forgive me if I'm doing it wrong. It uses the following Home Assistant integration.
+
+https://github.com/dalinicus/homeassistant-acinfinity
+
+I wish I had the skills to make an actual card that incorporates the integration where you could just add it but unfortunately I don't so the best I can do is provide users with the code and custom cards I used to create it.
 
 I basically made five folders with the code I used for my Home Assistant card. I use the card two different ways, as a popup card and as a regular card. The reason I have the popup uis because I originally had a dashboard view with a lot of other information on it so I setup the AC Infinity card to operate as a popup. I still have that dashboard view but I also now have a dashboard view with both my AC Infinity controllers in a side-by-side view for comparision. I change things as I need them or as I feel I don't need them which is why you might see something repetitive like the control for the max or on level of a device. I have both a bar slider and a number box because I'm trying out both to see which one I like more. I also display the Current Power because on the AC Infinity mobile app I under port settings I use TRANS for dynamic response, opposed to BUFF, so the devices power slowly increases based on the trigger that was set. One of the things I think I still need to fix is the Max and Min numbers for the sliders as a fail safe so I don't accidentally set a paramter to some extreme number. Another thing I recently added was the remaining time entity which shows the amount of time left in Scheduled Mode and some of the others. I noticed that when it comes to time it could be off based on your computer. It's just something to keep in mind if you ever see an offset when using the timer helper or anything similar. I resynced my computer time when I noticed that and everything was back working.
 
