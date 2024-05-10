@@ -1,0 +1,224 @@
+alias: Tap Action AC Infinty App
+sequence:
+  - service: browser_mod.popup
+    data_template:
+      card_mod:
+        style:
+          ha-dialog$: |
+            div.mdc-dialog div.mdc-dialog__scrim {
+              backdrop-filter: blur(5px);
+            }
+      title: AC Infinity
+      size: normal
+      browser_id: "{{ browser_id }}"
+      content:
+        type: custom:vertical-stack-in-card
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:button-card
+                name: AC Infinity - Tent {{ tent_00X }}
+                styles:
+                  card:
+                    - justify-self: center
+                    - font-size: 25px
+                card_mod:
+                  style: |
+                    ha-card {
+                      margin-bottom: -3% !important;
+                    }
+              - type: custom:mod-card
+                card_mod:
+                  style: |
+                    :host {
+                      --grid-card-gap: 35px;
+                      }
+                    ha-card {
+                      padding: 0px 50px 0px 50px !important;
+                      border-radius: 10px;
+                      border: none;
+                      }
+                card:
+                  type: grid
+                  title: null
+                  square: false
+                  columns: 3
+                  cards:
+                    - type: custom:flex-horseshoe-card
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                            }
+                      entities:
+                        - entity: sensor.tent_{{tent_00X}}_temperature
+                          decimals: 1
+                          name: Temperature
+                      show:
+                        scale_tickmarks: true
+                        horseshoe_style: fixed
+                      layout:
+                        states:
+                          - id: 0
+                            entity_index: 0
+                            xpos: 50
+                            ypos: 57
+                            styles:
+                              - font-size: 4em;
+                              - opacity: 1.0;
+                        names:
+                          - id: 0
+                            entity_index: 0
+                            xpos: 50
+                            ypos: 95
+                            styles:
+                              - font-size: 1.7em;
+                      horseshoe_scale:
+                        ticksize: 10
+                        min: 0
+                        max: 100
+                        width: 6
+                        color: var(--disabled-text-color)
+                      horseshoe_state:
+                        color: red
+                      color_stops:
+                        "68": yellow
+                        "69": black
+                        "70": yellow
+                    - type: custom:flex-horseshoe-card
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                            }
+                      entities:
+                        - entity: sensor.tent_{{tent_00X}}_humidity
+                          decimals: 1
+                          name: Humidity
+                      show:
+                        scale_tickmarks: true
+                        horseshoe_style: fixed
+                      layout:
+                        states:
+                          - id: 0
+                            entity_index: 0
+                            xpos: 50
+                            ypos: 57
+                            styles:
+                              - font-size: 4em;
+                              - opacity: 1.0;
+                        names:
+                          - id: 0
+                            entity_index: 0
+                            xpos: 50
+                            ypos: 95
+                            styles:
+                              - font-size: 1.7em;
+                      horseshoe_scale:
+                        ticksize: 10
+                        min: 0
+                        max: 100
+                        width: 6
+                        color: var(--disabled-text-color)
+                      horseshoe_state:
+                        color: blue
+                      color_stops:
+                        "68": yellow
+                        "69": black
+                        "70": yellow
+                    - type: custom:flex-horseshoe-card
+                      card_mod:
+                        style: |
+                          ha-card {
+                            border: none;
+                            }
+                      entities:
+                        - entity: sensor.tent_{{tent_00X}}_vpd
+                          decimals: 2
+                          name: VPD
+                      show:
+                        scale_tickmarks: true
+                        horseshoe_style: fixed
+                      layout:
+                        states:
+                          - id: 0
+                            entity_index: 0
+                            xpos: 50
+                            ypos: 57
+                            styles:
+                              - font-size: 4em;
+                              - opacity: 1.0;
+                        names:
+                          - id: 0
+                            entity_index: 0
+                            xpos: 50
+                            ypos: 95
+                            styles:
+                              - font-size: 1.7em;
+                      horseshoe_scale:
+                        ticksize: 0.1
+                        min: 0
+                        max: 3
+                        width: 6
+                        color: var(--disabled-text-color)
+                      horseshoe_state:
+                        color: green
+                      color_stops:
+                        "68": yellow
+                        "69": black
+                        "70": yellow
+          - type: custom:gap-card
+            height: 10
+          - type: custom:tabbed-card
+            option: null
+            attributes: null
+            tabs:
+              - card:
+                  type: custom:stack-in-card
+                  mode: vertical
+                  cards:
+                    - type: custom:decluttering-card
+                      variables:
+                        - dec_var_tent: "{{tent_00X}}"
+                        - dec_var_port: "001"
+                      template:
+                        - ac_infinity_app_001_declutter
+                attributes:
+                  label: Port 01
+              - card:
+                  type: custom:stack-in-card
+                  mode: vertical
+                  cards:
+                    - type: custom:decluttering-card
+                      variables:
+                        - dec_var_tent: "{{tent_00X}}"
+                        - dec_var_port: "002"
+                      template:
+                        - ac_infinity_app_001_declutter
+                attributes:
+                  label: Port 02
+              - card:
+                  type: custom:stack-in-card
+                  mode: vertical
+                  cards:
+                    - type: custom:decluttering-card
+                      variables:
+                        - dec_var_tent: "{{tent_00X}}"
+                        - dec_var_port: "003"
+                      template:
+                        - ac_infinity_app_001_declutter
+                attributes:
+                  label: Port 03
+              - card:
+                  type: custom:stack-in-card
+                  mode: vertical
+                  cards:
+                    - type: custom:decluttering-card
+                      variables:
+                        - dec_var_tent: "{{tent_00X}}"
+                        - dec_var_port: "004"
+                      template:
+                        - ac_infinity_app_001_declutter
+                attributes:
+                  label: Port 04
+icon: mdi:gesture-tap
