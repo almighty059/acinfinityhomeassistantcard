@@ -1,0 +1,76 @@
+button_card_templates:
+  ac_infinity_button_mode_state_01:
+    show_icon: false
+    tap_action:
+      action: call-service
+      service: select.select_option
+      service_data:
+        option: '[[[ return variables.var_selected_mode ]]]'
+        entity_id: '[[[ return entity.entity_id ]]]'
+    double_tap_action: []
+    hold_action: []
+    styles:
+      card:
+        - height: 100%
+        - '--mdc-ripple-color': white
+        - '--mdc-ripple-press-opacity': 0.5
+        - border-radius: 10%
+        - padding: 5%
+        - box-shadow: 0px 0px 0px 0px var(--primary-text-color)
+        - background-color: |
+            [[[
+              if (entity.state == variables.var_selected_mode) 
+                return 'rgba(255, 255, 255, 0.1 )';
+              else return '';
+            ]]]     
+      name:
+        - font-size: 12px
+        - color: |
+            [[[ 
+              if (entity.state == variables.var_selected_mode) 
+                return 'rgba(255, 255, 255, 1.0 )';
+              else return 'var(--disabled-text-color)';
+            ]]]
+        - font-weight: |
+            [[[
+              if (entity.state == variables.var_selected_mode) 
+                return 500;
+              else return '';
+            ]]]
+  ac_infinity_port_state_01:
+    show_name: true
+    show_icon: false
+    show_state: true
+    tap_action: []
+    double_tap_action: []
+    hold_action: []
+    styles:
+      name:
+        - font-size: 14px
+      state:
+        - font-size: 14px
+        - color: |
+            [[[
+              if (entity.state == 'On') 
+                return 'rgba(255, 255, 255, 1.0 )';
+              else return 'var(--disabled-text-color)';
+            ]]]    
+      card:
+        - height: 100%
+        - border-radius: 10%
+        - padding: 5%
+        - box-shadow: 0px 0px 0px 0px var(--primary-text-color)
+        - background-color: |
+            [[[
+              if (entity.state == 'On') 
+                return 'rgba(255, 255, 255, 0.3 )';
+              else if (entity.state == 'Off') 
+                return 'rgba(255, 255, 255, 0.1 )';
+              else return 'rgba(255, 0, 0, 0.1 )';
+            ]]]
+      label:
+        - font-size: 12px
+      grid:
+        - grid-template-areas: '"n" "l" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: auto
