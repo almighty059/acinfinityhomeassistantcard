@@ -245,19 +245,12 @@ cards:
                   entity: sensor.tent_001_port_004_state
                   name: Port 04
                   template:
-                    - ac_infinity_port_humidity_state_01
-                  variables:
-                    tent_number1: |
-                      [[[ return states['sensor.tent_001_humidity'].state ]]]
-                    tent_number2: >
-                      [[[ return
-                      states['number.tent_001_port_004_humidity_low_trigger'].state
-                      - 10; ]]] 
+                    - ac_infinity_port_state_01
                   show_label: true
                   label: |
                     [[[
                       return states['sensor.tent_001_port_004_plug'].state;
-                    ]]]                
+                    ]]]              
   - type: custom:vertical-stack-in-card
     cards:
       - type: custom:stack-in-card
