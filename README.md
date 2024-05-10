@@ -8,7 +8,11 @@ Custom Button Card: https://github.com/custom-cards/button-card
 Custom Stack In Card: https://github.com/custom-cards/stack-in-card
 
 Custom Declutter Card: https://github.com/custom-cards/decluttering-card
+
 Custom Flex Horseshoe Card: https://github.com/AmoebeLabs/flex-horseshoe-card
+
 Custom Mod Card: https://github.com/thomasloven/lovelace-card-mod
+
 Custom Vertical Stack In Card: https://github.com/ofekashery/vertical-stack-in-card
+
 Custom Browser Mod Card: https://github.com/thomasloven/hass-browser_mod
