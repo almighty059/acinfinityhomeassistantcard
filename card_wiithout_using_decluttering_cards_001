@@ -1,0 +1,2897 @@
+type: vertical-stack
+cards:
+  - type: custom:stack-in-card
+    mode: vertical
+    card_mod:
+      style: |
+        ha-card {
+          border: none !important;
+          }
+    cards:
+      - type: custom:stack-in-card
+        mode: vertical
+        card_mod:
+          style: |
+            ha-card {
+              border: none !important;
+              margin-top: 0px;
+              margin-bottom: 0%;
+              background: none;        
+              }     
+        cards:
+          - type: custom:button-card
+            template:
+              - default_button_01
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  }
+            name: Tent 001
+            aspect_ratio: null
+            styles:
+              name:
+                - font-size: 30px
+                - text-align: center
+            view_layout:
+              grid-area: name
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        entities:
+          - sensor.tent_001_temperature
+        name: Temperature
+        line_color: rgba( 255, 0, 0, 1.0)
+        font_size_header: 12
+        line_width: 3
+        font_size: 75
+        hours_to_show: 12
+        points_per_hour: 4
+      - type: custom:mini-graph-card
+        entities:
+          - sensor.tent_001_humidity
+        name: Humidity
+        line_color: rgba( 0, 0, 255, 1.0)
+        font_size_header: 12
+        line_width: 3
+        font_size: 75
+        hours_to_show: 12
+        points_per_hour: 4
+      - type: custom:mini-graph-card
+        entities:
+          - sensor.tent_001_vpd
+        name: VPD
+        unit: kPa
+        line_color: rgba( 0, 255, 0, 1.0)
+        font_size_header: 12
+        line_width: 3
+        font_size: 75
+        hours_to_show: 12
+        points_per_hour: 4
+  - type: custom:mod-card
+    card_mod:
+      style: |
+        :host {
+          --grid-card-gap: 35px;
+          }
+        ha-card {
+          padding: 0px 25px 0px 25px !important;
+          border-radius: 10px;
+          border: none !important;
+          }
+    card:
+      type: grid
+      title: null
+      square: false
+      columns: 3
+      cards:
+        - type: custom:flex-horseshoe-card
+          card_mod:
+            style: |
+              ha-card {
+                border: none;
+                }     
+          entities:
+            - entity: sensor.tent_001_temperature
+              decimals: 1
+              name: Temperature
+          show:
+            scale_tickmarks: true
+            horseshoe_style: fixed
+          layout:
+            states:
+              - id: 0
+                entity_index: 0
+                xpos: 50
+                ypos: 57
+                styles:
+                  - font-size: 4em;
+                  - opacity: 1.0;
+            names:
+              - id: 0
+                entity_index: 0
+                xpos: 50
+                ypos: 95
+                styles:
+                  - font-size: 1.7em;
+          horseshoe_scale:
+            ticksize: 10
+            min: 0
+            max: 100
+            width: 6
+            color: var(--disabled-text-color)
+          horseshoe_state:
+            color: red
+          color_stops:
+            '68': yellow
+            '69': black
+            '70': yellow
+        - type: custom:flex-horseshoe-card
+          card_mod:
+            style: |
+              ha-card {
+                border: none;
+                }
+          entities:
+            - entity: sensor.tent_001_humidity
+              decimals: 1
+              name: Humidity
+          show:
+            scale_tickmarks: true
+            horseshoe_style: fixed
+          layout:
+            states:
+              - id: 0
+                entity_index: 0
+                xpos: 50
+                ypos: 57
+                styles:
+                  - font-size: 4em;
+                  - opacity: 1.0;
+            names:
+              - id: 0
+                entity_index: 0
+                xpos: 50
+                ypos: 95
+                styles:
+                  - font-size: 1.7em;
+          horseshoe_scale:
+            ticksize: 10
+            min: 0
+            max: 100
+            width: 6
+            color: var(--disabled-text-color)
+          horseshoe_state:
+            color: blue
+          color_stops:
+            '68': yellow
+            '69': black
+            '70': yellow
+        - type: custom:flex-horseshoe-card
+          card_mod:
+            style: |
+              ha-card {
+                border: none;
+                }
+          entities:
+            - entity: sensor.tent_001_vpd
+              decimals: 2
+              name: VPD
+          show:
+            scale_tickmarks: true
+            horseshoe_style: fixed
+          layout:
+            states:
+              - id: 0
+                entity_index: 0
+                xpos: 50
+                ypos: 57
+                styles:
+                  - font-size: 4em;
+                  - opacity: 1.0;
+            names:
+              - id: 0
+                entity_index: 0
+                xpos: 50
+                ypos: 95
+                styles:
+                  - font-size: 1.7em;
+          horseshoe_scale:
+            ticksize: 0.1
+            min: 0
+            max: 3
+            width: 6
+            color: var(--disabled-text-color)
+          horseshoe_state:
+            color: green
+          color_stops:
+            '68': yellow
+            '69': black
+            '70': yellow
+  - type: custom:stack-in-card
+    mode: vertical
+    card_mod:
+      style: |
+        ha-card {
+          margin-bottom: 0% !important;
+          border: none;
+          }
+    cards:
+      - type: custom:mod-card
+        card_mod:
+          style: |
+            :host {
+              --grid-card-gap: 15px;
+              }
+            ha-card {
+              background: rgba(28,28,28,1.0);
+              padding: 10px;
+              border-radius: 5px;
+              }
+        card:
+          type: grid
+          title: null
+          square: false
+          columns: 4
+          cards:
+            - type: custom:button-card
+              entity: sensor.tent_001_port_001_state
+              name: Port 01
+              template:
+                - ac_infinity_port_state_01
+              show_label: true
+              label: |
+                [[[
+                  return states['sensor.tent_001_port_001_plug'].state;
+                ]]]
+            - type: custom:button-card
+              entity: sensor.tent_001_port_002_state
+              name: Port 02
+              template:
+                - ac_infinity_port_state_01
+              show_label: true
+              label: |
+                [[[
+                  return states['sensor.tent_001_port_002_plug'].state;
+                ]]]
+            - type: custom:button-card
+              entity: sensor.tent_001_port_003_state
+              name: Port 03
+              template:
+                - ac_infinity_port_state_01
+              show_label: true
+              label: |
+                [[[
+                  return states['sensor.tent_001_port_003_plug'].state;
+                ]]]
+            - type: custom:button-card
+              entity: sensor.tent_001_port_004_state
+              name: Port 04
+              template:
+                - ac_infinity_port_humidity_state_01
+              variables:
+                tent_number1: |
+                  [[[ return states['sensor.tent_001_humidity'].state; ]]]
+                tent_number2: >
+                  [[[ return
+                  states['number.tent_001_port_004_humidity_low_trigger'].state
+                  - 10; ]]] 
+              show_label: true
+              label: |
+                [[[
+                  return states['sensor.tent_001_port_004_plug'].state;
+                ]]]                     
+  - type: custom:tabbed-card
+    options:
+      defaultTabIndex: 0
+    attributes:
+      icon: null
+    tabs:
+      - card:
+          type: custom:vertical-stack-in-card
+          horizontal: false
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:mod-card
+                  card_mod:
+                    style: |
+                      :host {
+                        --grid-card-gap: 15px;
+                        }
+                      ha-card {
+                        background: rgba(28,28,28,1.0);
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: none !important;                 
+                        }
+                  card:
+                    type: grid
+                    square: false
+                    columns: 4
+                    cards:
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''OFF'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: 'OFF'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                     
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''ON'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: 'ON'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]            
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Auto'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''AUTO'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: AUTO
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO ON'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: TIMER ON
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO OFF'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: TIMER OFF
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Cycle'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''CYCLE'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: CYCLE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Schedule'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''SCHEDULE'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: SCHEDULE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]             
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''VPD'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''VPD'' ]]]'
+                        entity: select.tent_001_port_001_active_mode
+                        name: VPD
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: custom:gap-card
+                        height: 40
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:mod-card
+                            card_mod:
+                              style:
+                                hui-horizontal-stack-card $: |
+                                  slider-button-card:nth-of-type(1) {
+                                    flex-grow: 2 !important; 
+                                  }
+                                  numberbox-card:nth-of-type(2) {
+                                    flex-grow: 1 !important; 
+                                  }
+                                  button-card:nth-of-type(3) {
+                                    flex-grow: 1 !important; 
+                                  }
+                            card:
+                              type: horizontal-stack
+                              cards:
+                                - type: custom:slider-button-card
+                                  entity: number.tent_001_port_001_on_power
+                                  name: 'Max Level:   '
+                                  compact: true
+                                  slider:
+                                    direction: left-right
+                                    background: gradient
+                                    show_state: true
+                                  icon:
+                                    tap_action:
+                                      action: none
+                                    icon: mdi:arrow-left-right
+                                  action_button:
+                                    show: false
+                                - type: custom:numberbox-card
+                                  icon: false
+                                  entity: number.tent_001_port_001_on_power
+                                  name: false
+                                  max: 10
+                                  min: 1
+                                  card_mod:
+                                    style: >
+                                      .body{display:block!important}
+                                      .cur-num{font-size: 25px !important}
+                                      .cur-box ha-icon{transform:scale(90%)}
+                                      .body::after{text-align:center;font-size:14px;padding-top:6px;content:"Max
+                                      Level";display:block!important}
+                                - type: custom:button-card
+                                  template:
+                                    - default_button_01
+                                  entity: sensor.tent_001_port_001_current_power
+                                  name: Current Level
+                                  show_icon: false
+                                  show_state: true
+                                  card_mod:
+                                    style: |
+                                      ha-card {
+                                        border: none !important;
+                                        }
+                                  styles:
+                                    card: null
+                                    name:
+                                      - font-size: 14px
+                                    state:
+                                      - font-size: 25px
+                                    grid:
+                                      - grid-template-areas: '"s" "n"'
+                                      - grid-template-columns: 1fr
+                                      - grid-template-rows: null
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: []
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:button-card
+                            show_icon: false
+                            entity: null
+                            name: No device is currently plugged in.
+                            styles:
+                              name:
+                                - font-size: 20px
+                              card:
+                                - border: 0px
+                          - type: custom:gap-card
+                            height: 5
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: 'Off'
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_001_off_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: 'On'
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_001_on_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: Auto
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_001_temperature_high_trigger
+                            name: Temperature High Trigger
+                            max: 194
+                            toggle_entity: >-
+                              switch.tent_001_port_001_temperature_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_001_temperature_low_trigger
+                            name: Temperature Low Trigger
+                            min: 32
+                            toggle_entity: >-
+                              switch.tent_001_port_001_temperature_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_001_humidity_high_trigger
+                            name: Humidity High Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_001_humidity_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_001_humidity_low_trigger
+                            name: Humidity Low Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_001_humidity_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .body .cur-unit {
+                                  color: lightgrey;
+                                  opacity: 1;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: Timer to On
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_001_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_001_timer_minutes_to_on
+                            name: Time To On
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: Timer to Off
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_001_remaining_time
+                            name: Time Remaining
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_001_timer_minutes_to_off
+                            name: Time To Off
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: Cycle
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_001_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_001_cycle_minutes_off
+                            name: Off Duration
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_001_cycle_minutes_on
+                            name: On Duration
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: Schedule
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }                 
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_001_remaining_time
+                            name: Time Until Change
+                          - entity: switch.tent_001_port_001_scheduled_on_time_enabled
+                            name: Start Time Enabled
+                          - entity: time.tent_001_port_001_scheduled_on_time
+                            name: Start Time
+                          - entity: >-
+                              switch.tent_001_port_001_scheduled_off_time_enabled
+                            name: End Time Enabled
+                          - entity: time.tent_001_port_001_scheduled_off_time
+                            name: End Time
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_001_active_mode
+                      state: VPD
+                    - entity: sensor.tent_001_port_001_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            unit: ' kPa'
+                            entity: number.tent_001_port_001_vpd_high_trigger
+                            name: VPD High Trigger
+                            toggle_entity: switch.tent_001_port_001_vpd_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                          - type: custom:numberbox-card
+                            unit:  kPa
+                            entity: number.tent_001_port_001_vpd_low_trigger
+                            name: VPD Low Trigger
+                            toggle_entity: switch.tent_001_port_001_vpd_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                        show_header_toggle: false
+        attributes:
+          label: Port 01
+      - card:
+          type: custom:vertical-stack-in-card
+          horizontal: false
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:mod-card
+                  card_mod:
+                    style: |
+                      :host {
+                        --grid-card-gap: 15px;
+                        }
+                      ha-card {
+                        background: rgba(28,28,28,1.0);
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: none !important;                 
+                        }
+                  card:
+                    type: grid
+                    square: false
+                    columns: 4
+                    cards:
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''OFF'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: 'OFF'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                     
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''ON'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: 'ON'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]            
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Auto'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''AUTO'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: AUTO
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO ON'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: TIMER ON
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO OFF'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: TIMER OFF
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Cycle'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''CYCLE'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: CYCLE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Schedule'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''SCHEDULE'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: SCHEDULE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]             
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''VPD'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''VPD'' ]]]'
+                        entity: select.tent_001_port_002_active_mode
+                        name: VPD
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: custom:gap-card
+                        height: 40
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:mod-card
+                            card_mod:
+                              style:
+                                hui-horizontal-stack-card $: |
+                                  slider-button-card:nth-of-type(1) {
+                                    flex-grow: 2 !important; 
+                                  }
+                                  numberbox-card:nth-of-type(2) {
+                                    flex-grow: 1 !important; 
+                                  }
+                                  button-card:nth-of-type(3) {
+                                    flex-grow: 1 !important; 
+                                  }
+                            card:
+                              type: horizontal-stack
+                              cards:
+                                - type: custom:slider-button-card
+                                  entity: number.tent_001_port_002_on_power
+                                  name: 'Max Level:   '
+                                  compact: true
+                                  slider:
+                                    direction: left-right
+                                    background: gradient
+                                    show_state: true
+                                  icon:
+                                    tap_action:
+                                      action: none
+                                    icon: mdi:arrow-left-right
+                                  action_button:
+                                    show: false
+                                - type: custom:numberbox-card
+                                  icon: false
+                                  entity: number.tent_001_port_002_on_power
+                                  name: false
+                                  max: 10
+                                  min: 1
+                                  card_mod:
+                                    style: >
+                                      .body{display:block!important}
+                                      .cur-num{font-size: 25px !important}
+                                      .cur-box ha-icon{transform:scale(90%)}
+                                      .body::after{text-align:center;font-size:14px;padding-top:6px;content:"Max
+                                      Level";display:block!important}
+                                - type: custom:button-card
+                                  template:
+                                    - default_button_01
+                                  entity: sensor.tent_001_port_002_current_power
+                                  name: Current Level
+                                  show_icon: false
+                                  show_state: true
+                                  card_mod:
+                                    style: |
+                                      ha-card {
+                                        border: none !important;
+                                        }
+                                  styles:
+                                    card: null
+                                    name:
+                                      - font-size: 14px
+                                    state:
+                                      - font-size: 25px
+                                    grid:
+                                      - grid-template-areas: '"s" "n"'
+                                      - grid-template-columns: 1fr
+                                      - grid-template-rows: null
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: []
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:button-card
+                            show_icon: false
+                            entity: null
+                            name: No device is currently plugged in.
+                            styles:
+                              name:
+                                - font-size: 20px
+                              card:
+                                - border: 0px
+                          - type: custom:gap-card
+                            height: 5
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: 'Off'
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_002_off_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: 'On'
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_002_on_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: Auto
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_002_temperature_high_trigger
+                            name: Temperature High Trigger
+                            max: 194
+                            toggle_entity: >-
+                              switch.tent_001_port_002_temperature_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_002_temperature_low_trigger
+                            name: Temperature Low Trigger
+                            min: 32
+                            toggle_entity: >-
+                              switch.tent_001_port_002_temperature_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_002_humidity_high_trigger
+                            name: Humidity High Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_002_humidity_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_002_humidity_low_trigger
+                            name: Humidity Low Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_002_humidity_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .body .cur-unit {
+                                  color: lightgrey;
+                                  opacity: 1;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: Timer to On
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_002_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_002_timer_minutes_to_on
+                            name: Time To On
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: Timer to Off
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_002_remaining_time
+                            name: Time Remaining
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_002_timer_minutes_to_off
+                            name: Time To Off
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: Cycle
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_002_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_002_cycle_minutes_off
+                            name: Off Duration
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_002_cycle_minutes_on
+                            name: On Duration
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: Schedule
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }                 
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_002_remaining_time
+                            name: Time Until Change
+                          - entity: switch.tent_001_port_002_scheduled_on_time_enabled
+                            name: Start Time Enabled
+                          - entity: time.tent_001_port_002_scheduled_on_time
+                            name: Start Time
+                          - entity: >-
+                              switch.tent_001_port_002_scheduled_off_time_enabled
+                            name: End Time Enabled
+                          - entity: time.tent_001_port_002_scheduled_off_time
+                            name: End Time
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_002_active_mode
+                      state: VPD
+                    - entity: sensor.tent_001_port_002_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            unit: ' kPa'
+                            entity: number.tent_001_port_002_vpd_high_trigger
+                            name: VPD High Trigger
+                            toggle_entity: switch.tent_001_port_002_vpd_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                          - type: custom:numberbox-card
+                            unit:  kPa
+                            entity: number.tent_001_port_002_vpd_low_trigger
+                            name: VPD Low Trigger
+                            toggle_entity: switch.tent_001_port_002_vpd_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                        show_header_toggle: false
+        attributes:
+          label: Port 02
+      - card:
+          type: custom:vertical-stack-in-card
+          horizontal: false
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:mod-card
+                  card_mod:
+                    style: |
+                      :host {
+                        --grid-card-gap: 15px;
+                        }
+                      ha-card {
+                        background: rgba(28,28,28,1.0);
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: none !important;                 
+                        }
+                  card:
+                    type: grid
+                    square: false
+                    columns: 4
+                    cards:
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''OFF'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: 'OFF'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                     
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''ON'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: 'ON'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]            
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Auto'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''AUTO'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: AUTO
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO ON'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: TIMER ON
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO OFF'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: TIMER OFF
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Cycle'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''CYCLE'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: CYCLE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Schedule'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''SCHEDULE'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: SCHEDULE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]             
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''VPD'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''VPD'' ]]]'
+                        entity: select.tent_001_port_003_active_mode
+                        name: VPD
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: custom:gap-card
+                        height: 40
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:mod-card
+                            card_mod:
+                              style:
+                                hui-horizontal-stack-card $: |
+                                  slider-button-card:nth-of-type(1) {
+                                    flex-grow: 2 !important; 
+                                  }
+                                  numberbox-card:nth-of-type(2) {
+                                    flex-grow: 1 !important; 
+                                  }
+                                  button-card:nth-of-type(3) {
+                                    flex-grow: 1 !important; 
+                                  }
+                            card:
+                              type: horizontal-stack
+                              cards:
+                                - type: custom:slider-button-card
+                                  entity: number.tent_001_port_003_on_power
+                                  name: 'Max Level:   '
+                                  compact: true
+                                  slider:
+                                    direction: left-right
+                                    background: gradient
+                                    show_state: true
+                                  icon:
+                                    tap_action:
+                                      action: none
+                                    icon: mdi:arrow-left-right
+                                  action_button:
+                                    show: false
+                                - type: custom:numberbox-card
+                                  icon: false
+                                  entity: number.tent_001_port_003_on_power
+                                  name: false
+                                  max: 10
+                                  min: 1
+                                  card_mod:
+                                    style: >
+                                      .body{display:block!important}
+                                      .cur-num{font-size: 25px !important}
+                                      .cur-box ha-icon{transform:scale(90%)}
+                                      .body::after{text-align:center;font-size:14px;padding-top:6px;content:"Max
+                                      Level";display:block!important}
+                                - type: custom:button-card
+                                  template:
+                                    - default_button_01
+                                  entity: sensor.tent_001_port_003_current_power
+                                  name: Current Level
+                                  show_icon: false
+                                  show_state: true
+                                  card_mod:
+                                    style: |
+                                      ha-card {
+                                        border: none !important;
+                                        }
+                                  styles:
+                                    card: null
+                                    name:
+                                      - font-size: 14px
+                                    state:
+                                      - font-size: 25px
+                                    grid:
+                                      - grid-template-areas: '"s" "n"'
+                                      - grid-template-columns: 1fr
+                                      - grid-template-rows: null
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: []
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:button-card
+                            show_icon: false
+                            entity: null
+                            name: No device is currently plugged in.
+                            styles:
+                              name:
+                                - font-size: 20px
+                              card:
+                                - border: 0px
+                          - type: custom:gap-card
+                            height: 5
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: 'Off'
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_003_off_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: 'On'
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_003_on_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: Auto
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_003_temperature_high_trigger
+                            name: Temperature High Trigger
+                            max: 194
+                            toggle_entity: >-
+                              switch.tent_001_port_003_temperature_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_003_temperature_low_trigger
+                            name: Temperature Low Trigger
+                            min: 32
+                            toggle_entity: >-
+                              switch.tent_001_port_003_temperature_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_003_humidity_high_trigger
+                            name: Humidity High Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_003_humidity_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_003_humidity_low_trigger
+                            name: Humidity Low Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_003_humidity_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .body .cur-unit {
+                                  color: lightgrey;
+                                  opacity: 1;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: Timer to On
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_003_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_003_timer_minutes_to_on
+                            name: Time To On
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: Timer to Off
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_003_remaining_time
+                            name: Time Remaining
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_003_timer_minutes_to_off
+                            name: Time To Off
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: Cycle
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_003_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_003_cycle_minutes_off
+                            name: Off Duration
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_003_cycle_minutes_on
+                            name: On Duration
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: Schedule
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }                 
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_003_remaining_time
+                            name: Time Until Change
+                          - entity: switch.tent_001_port_003_scheduled_on_time_enabled
+                            name: Start Time Enabled
+                          - entity: time.tent_001_port_003_scheduled_on_time
+                            name: Start Time
+                          - entity: >-
+                              switch.tent_001_port_003_scheduled_off_time_enabled
+                            name: End Time Enabled
+                          - entity: time.tent_001_port_003_scheduled_off_time
+                            name: End Time
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_003_active_mode
+                      state: VPD
+                    - entity: sensor.tent_001_port_003_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            unit: ' kPa'
+                            entity: number.tent_001_port_003_vpd_high_trigger
+                            name: VPD High Trigger
+                            toggle_entity: switch.tent_001_port_003_vpd_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                          - type: custom:numberbox-card
+                            unit:  kPa
+                            entity: number.tent_001_port_003_vpd_low_trigger
+                            name: VPD Low Trigger
+                            toggle_entity: switch.tent_001_port_003_vpd_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                        show_header_toggle: false
+        attributes:
+          label: Port 03
+      - card:
+          type: custom:vertical-stack-in-card
+          horizontal: false
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: custom:mod-card
+                  card_mod:
+                    style: |
+                      :host {
+                        --grid-card-gap: 15px;
+                        }
+                      ha-card {
+                        background: rgba(28,28,28,1.0);
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: none !important;                 
+                        }
+                  card:
+                    type: grid
+                    square: false
+                    columns: 4
+                    cards:
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''OFF'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: 'OFF'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                     
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''ON'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: 'ON'
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]            
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Auto'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''AUTO'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: AUTO
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to On'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO ON'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: TIMER ON
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]                
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Timer to Off'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''TIMER TO OFF'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: TIMER OFF
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Cycle'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''CYCLE'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: CYCLE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''Schedule'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''SCHEDULE'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: SCHEDULE
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]             
+                      - type: custom:button-card
+                        template:
+                          - ac_infinity_button_mode_state_01
+                        variables:
+                          var_selected_mode: '[[[ return ''VPD'' ]]]'
+                          var_selected_mode_all_caps: '[[[ return ''VPD'' ]]]'
+                        entity: select.tent_001_port_004_active_mode
+                        name: VPD
+                        confirmation:
+                          text: >-
+                            [[[ return `Are you sure you to switch Port
+                            [[dec_var_port]]
+                             to ${variables.var_selected_mode_all_caps} mode?` ]]]               
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: custom:gap-card
+                        height: 40
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: horizontal-stack
+                        cards:
+                          - type: custom:mod-card
+                            card_mod:
+                              style:
+                                hui-horizontal-stack-card $: |
+                                  slider-button-card:nth-of-type(1) {
+                                    flex-grow: 2 !important; 
+                                  }
+                                  numberbox-card:nth-of-type(2) {
+                                    flex-grow: 1 !important; 
+                                  }
+                                  button-card:nth-of-type(3) {
+                                    flex-grow: 1 !important; 
+                                  }
+                            card:
+                              type: horizontal-stack
+                              cards:
+                                - type: custom:slider-button-card
+                                  entity: number.tent_001_port_004_on_power
+                                  name: 'Max Level:   '
+                                  compact: true
+                                  slider:
+                                    direction: left-right
+                                    background: gradient
+                                    show_state: true
+                                  icon:
+                                    tap_action:
+                                      action: none
+                                    icon: mdi:arrow-left-right
+                                  action_button:
+                                    show: false
+                                - type: custom:numberbox-card
+                                  icon: false
+                                  entity: number.tent_001_port_004_on_power
+                                  name: false
+                                  max: 10
+                                  min: 1
+                                  card_mod:
+                                    style: >
+                                      .body{display:block!important}
+                                      .cur-num{font-size: 25px !important}
+                                      .cur-box ha-icon{transform:scale(90%)}
+                                      .body::after{text-align:center;font-size:14px;padding-top:6px;content:"Max
+                                      Level";display:block!important}
+                                - type: custom:button-card
+                                  template:
+                                    - default_button_01
+                                  entity: sensor.tent_001_port_004_current_power
+                                  name: Current Level
+                                  show_icon: false
+                                  show_state: true
+                                  card_mod:
+                                    style: |
+                                      ha-card {
+                                        border: none !important;
+                                        }
+                                  styles:
+                                    card: null
+                                    name:
+                                      - font-size: 14px
+                                    state:
+                                      - font-size: 25px
+                                    grid:
+                                      - grid-template-areas: '"s" "n"'
+                                      - grid-template-columns: 1fr
+                                      - grid-template-rows: null
+                - type: conditional
+                  conditions:
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Unplugged
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: []
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:button-card
+                            show_icon: false
+                            entity: null
+                            name: No device is currently plugged in.
+                            styles:
+                              name:
+                                - font-size: 20px
+                              card:
+                                - border: 0px
+                          - type: custom:gap-card
+                            height: 5
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: 'Off'
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_004_off_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: 'On'
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: number.tent_001_port_004_on_power
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: Auto
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_004_temperature_high_trigger
+                            name: Temperature High Trigger
+                            max: 194
+                            toggle_entity: >-
+                              switch.tent_001_port_004_temperature_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            entity: number.tent_001_port_004_temperature_low_trigger
+                            name: Temperature Low Trigger
+                            min: 32
+                            toggle_entity: >-
+                              switch.tent_001_port_004_temperature_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .cur-box {
+                                   margin-left: 0px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_004_humidity_high_trigger
+                            name: Humidity High Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_004_humidity_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                          - type: custom:numberbox-card
+                            icon: false
+                            unit:  %
+                            entity: number.tent_001_port_004_humidity_low_trigger
+                            name: Humidity Low Trigger
+                            toggle_entity: >-
+                              switch.tent_001_port_004_humidity_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                                .body .cur-unit {
+                                  color: lightgrey;
+                                  opacity: 1;
+                                }
+                                .cur-box {
+                                   margin-left: 20px;
+                                   width: 125px;
+                                   justify-content: left !important;       
+                                  }
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: Timer to On
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_004_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_004_timer_minutes_to_on
+                            name: Time To On
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: Timer to Off
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_004_remaining_time
+                            name: Time Remaining
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_004_timer_minutes_to_off
+                            name: Time To Off
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: Cycle
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_004_remaining_time
+                            name: Time Until
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_004_cycle_minutes_off
+                            name: Off Duration
+                          - type: custom:numberbox-card
+                            icon: mdi:timer-outline
+                            unit:  min
+                            entity: number.tent_001_port_004_cycle_minutes_on
+                            name: On Duration
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: Schedule
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }                 
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - entity: sensor.tent_001_port_004_remaining_time
+                            name: Time Until Change
+                          - entity: switch.tent_001_port_004_scheduled_on_time_enabled
+                            name: Start Time Enabled
+                          - entity: time.tent_001_port_004_scheduled_on_time
+                            name: Start Time
+                          - entity: >-
+                              switch.tent_001_port_004_scheduled_off_time_enabled
+                            name: End Time Enabled
+                          - entity: time.tent_001_port_004_scheduled_off_time
+                            name: End Time
+                        show_header_toggle: false
+                - type: conditional
+                  conditions:
+                    - entity: select.tent_001_port_004_active_mode
+                      state: VPD
+                    - entity: sensor.tent_001_port_004_plug
+                      state: Plugged In
+                  card:
+                    type: custom:stack-in-card
+                    mode: vertical
+                    card_mod:
+                      style: |
+                        ha-card {
+                          border: none !important;
+                          }
+                    cards:
+                      - type: entities
+                        entities:
+                          - type: section
+                            label: Mode Settings
+                            card_mod:
+                              style: |
+                                .label {
+                                  color: rgb(187, 187, 187) !important;
+                                  font-size: 20px !important;
+                                }
+                                .divider {
+                                  background-color: rgb(187, 187, 187) !important;
+                                  height: .5px !important;
+                                }
+                          - type: custom:gap-card
+                            height: 5
+                          - type: custom:numberbox-card
+                            unit: ' kPa'
+                            entity: number.tent_001_port_004_vpd_high_trigger
+                            name: VPD High Trigger
+                            toggle_entity: switch.tent_001_port_004_vpd_high_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: tomato;
+                                }
+                          - type: custom:numberbox-card
+                            unit:  kPa
+                            entity: number.tent_001_port_004_vpd_low_trigger
+                            name: VPD Low Trigger
+                            toggle_entity: switch.tent_001_port_004_vpd_low_trigger_enabled
+                            card_mod:
+                              style: |
+                                .body .cur-num {
+                                  color: lightblue;
+                                }
+                        show_header_toggle: false
+        attributes:
+          label: Port 04
